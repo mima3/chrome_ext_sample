@@ -1,0 +1,19 @@
+{
+  "name": "002_pageaction",
+  "description" : "ページアクションのテスト",
+  "version": "1.0",
+  "permissions" :[
+    "activeTab",  "tabs"
+  ],
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_title": "ポップアップ",
+    "default_icon": "hello_extensions.png"
+  },
+  "background": {
+      "scripts": [
+          "background.js"
+      ]
+  },
+  "manifest_version": 2
+}
