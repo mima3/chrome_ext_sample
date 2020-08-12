@@ -1,0 +1,19 @@
+{
+  "name": "003_contents_script",
+  "description" : "コンテンツスクリプトのテスト",
+  "version": "1.0",
+  "permissions" :[
+    "activeTab",  "tabs"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "manifest_version": 2
+}
