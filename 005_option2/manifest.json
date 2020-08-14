@@ -1,0 +1,17 @@
+{
+  "name": "005_option(Embedded Options)",
+  "description" : "オプション画面のテスト(埋め込み)",
+  "version": "1.0",
+  "permissions" :[
+    "activeTab",  "tabs", "storage"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "options_ui": {
+    "page": "option.html",
+    "open_in_tab": false
+  },
+  "manifest_version": 2
+}

@@ -1,0 +1,14 @@
+{
+  "name": "004_option",
+  "description" : "オプション画面のテスト",
+  "version": "1.0",
+  "permissions" :[
+    "activeTab",  "tabs", "storage"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "options_page": "option.html",
+  "manifest_version": 2
+}
