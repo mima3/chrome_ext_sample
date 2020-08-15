@@ -1,6 +1,6 @@
 ﻿# 以下を参考
 # https://github.com/hmemcpy/ChromeRegJump/blob/master/src/host/nativehost.ps1
-function Respond($response) {
+function Set-Respond($response) {
     $msg = $response | ConvertTo-Json
 
     try {
@@ -14,17 +14,21 @@ function Respond($response) {
     }
 }
 
+function Read-Input() {
+    $obj = $null
+    try {
+        $reader = New-Object System.IO.BinaryReader([System.Console]::OpenStandardInput())
+        $len = $reader.ReadInt32()
+        $buf = $reader.ReadBytes($len)
+        $msg = [System.Text.Encoding]::UTF8.GetString($buf)
 
-try {
-    $reader = New-Object System.IO.BinaryReader([System.Console]::OpenStandardInput())
-    $len = $reader.ReadInt32()
-    $buf = $reader.ReadBytes($len)
-    $msg = [System.Text.Encoding]::UTF8.GetString($buf)
+        $obj = $msg | ConvertFrom-Json
+    } finally {
+        $reader.Dispose()
+    }
+    return $obj
+}
 
-    $obj = $msg | ConvertFrom-Json
-    $res = $obj.text
-    return Respond @{responce=$res}
-
-} finally {
-    $reader.Dispose()
+While ($data = Read-Input) {
+    Set-Respond @{responce=$data.text}
 }
