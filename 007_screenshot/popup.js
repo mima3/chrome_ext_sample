@@ -12,3 +12,17 @@ document.getElementById('btnScreenShot').onclick = function (element) {
      });
   });
 };
+document.getElementById('inputFile').onchange = function(element) {
+  const fs = document.getElementById('inputFile').files;
+  const f = fs[0];
+  const reader = new FileReader();
+  reader.onload = function(event) {
+    console.log(event.target.result);
+  };
+  reader.onerror = function (event){
+    // 読み込み失敗時の処理を指定
+    alert('load error.');
+  }; 
+  console.log(reader.readAsText(f));
+
+};
