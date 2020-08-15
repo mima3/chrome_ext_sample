@@ -1,0 +1,13 @@
+{
+  "name": "007_screenshot",
+  "description" : "スクリーンショットの試験",
+  "version": "1.0",
+  "permissions" :[
+    "activeTab",  "tabs", "downloads"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "manifest_version": 2
+}
